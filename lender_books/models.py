@@ -1,12 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
 
 class Book(models.Model):
     STATES = [
         ('available', 'Available'),
-        ('check-our', 'Check_out')
+        ('check-out', 'Check_out')
     ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='books')
+
     title = models.CharField(max_length=48)
     author = models.CharField(max_length=48)
     year = models.CharField(max_length=48)

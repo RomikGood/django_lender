@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(223, 160, 89);
+}
+
+h1 {
+    color: black;
+    font-family: verdana;
+    font-size: 300%;
+}
+h2 {
+    color: black;
+    font-family: verdana;
+    font-size: 150%;
+}
+
+p  {
+    color: #777;
+    font-family: courier;
+    font-size: 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #555;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #777;
+}

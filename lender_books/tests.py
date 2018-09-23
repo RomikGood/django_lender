@@ -17,9 +17,13 @@ class TestBookModel(TestCase):
         Book.objects.create(title='Gnarf', author='django', user=self.user)
         
     def test_book_titles(self):
+        """test book title matches the created title
+        """
         self.assertEqual(self.book.title, 'Best book')
 
     def test_book_detail(self):
+        """test that book author matches created instance
+        """
         book = Book.objects.get(title='Gnarf')
         self.assertEqual(book.author, 'django')
 
@@ -35,6 +39,8 @@ class TestBookViews(TestCase):
         self.book_two = Book.objects.create(title='Gnarf', author='django', user=self.user)
 
     def test_book_detail_view(self):
+        """test that DB has correct book details
+        """
         from .views import book_detail_view
         request = self.request.get('')
 
@@ -44,6 +50,8 @@ class TestBookViews(TestCase):
         self.assertIn(b'wat stick', response.content)
 
     def test_book_detail_status(self):
+        """tests detail status success 200
+        """
         from .views import book_detail_view
         request = self.request.get('')
         request.user = self.user
@@ -51,6 +59,8 @@ class TestBookViews(TestCase):
         self.assertEqual(200, response.status_code)
 
     def test_book_detail_date_filter(self):
+        """test date filter sets the right date
+        """
         from .views import book_detail_view
         request = self.request.get('')
         request.user = self.user
